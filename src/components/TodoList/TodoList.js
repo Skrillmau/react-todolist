@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TodoItem from "../TodoItem/TodoItem";
+import styles from './TodoList.module.css'
 
 class TodoList extends Component {
     render() {
@@ -7,7 +8,7 @@ class TodoList extends Component {
         const {todos} = this.props;
 
         return (
-            <div className="">
+            <div className={styles.container}>
                 {todos.map((item,index)=>{
 
                     return (

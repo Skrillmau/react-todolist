@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import styles from './TodoItem.module.css'
+import logo from '../../assets/images/minus-solid.svg'
 
 class TodoItem extends Component {
     render() {
@@ -6,11 +8,11 @@ class TodoItem extends Component {
 
         return (
             <>
-            <div onClick={this.toggleCompleted}>
+             <button className={`${styles.boton} hvr-grow`} onClick={this.deleteTodo}><img className={styles.img} src={logo} /></button>
+            <div className={`${styles.text}  ${todo.completed ? styles.completado : ''}`} onClick={this.toggleCompleted}>
                 {todo.text}
-                {id}
             </div>
-            <button onClick={this.deleteTodo}>Eliminar</button>
+           
             </>
         );
     }

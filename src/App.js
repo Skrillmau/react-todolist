@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import TodoList from "./components/TodoList/TodoList";
 import TodoForm from "./components/TodoForm/TodoForm";
+import Title from "./components/Title/Title";
 import style from "./App.module.css";
 
 class App extends Component {
@@ -53,16 +54,24 @@ class App extends Component {
     const newArray = [...this.state.todos];
     newArray.splice(id, 1);
     await this.setState({
-      todos: newArray
+      todos: newArray,
     });
     localStorage.setItem("todos", JSON.stringify(this.state.todos));
   };
   render() {
     return (
       <>
-        <div className={style.App}></div>
-        <TodoForm addFn={this.addTodo} />
-        <TodoList deleteFn={this.deleteTodo} updateFn={this.updateTodo} todos={this.state.todos} />
+        <Title>To Do List</Title>
+        <div className={style.container}>
+          
+          <TodoForm addFn={this.addTodo} />
+          <Title>Tareas:</Title>
+          <TodoList
+            deleteFn={this.deleteTodo}
+            updateFn={this.updateTodo}
+            todos={this.state.todos}
+          />
+        </div>
       </>
     );
   }
