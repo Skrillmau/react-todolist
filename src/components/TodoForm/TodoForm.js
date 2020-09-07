@@ -15,7 +15,6 @@ class TodoForm extends Component {
       <div className={styles.container}>
         <form id="todoform" onSubmit={this.handleSubmit}>
           <button className={`${styles.boton} hvr-grow`} type="submit">
-           
             <img className={styles.img} src={logo} />
           </button>
           <input
@@ -33,8 +32,12 @@ class TodoForm extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addFn(this.state.todo);
-    document.getElementById("todoform").reset();
+    if (this.state.todo !== "") {
+     
+      this.props.addFn(this.state.todo);
+      document.getElementById("todoform").reset();
+      this.setState({ todo: "" });
+    }
   };
 }
 

@@ -61,9 +61,8 @@ class App extends Component {
   render() {
     return (
       <>
-        <Title>To Do List</Title>
         <div className={style.container}>
-          
+          <Title>To Do List</Title>
           <TodoForm addFn={this.addTodo} />
           <Title>Tareas:</Title>
           <TodoList
